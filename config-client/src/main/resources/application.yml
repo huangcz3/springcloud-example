@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: config-client
+#server:
+#  port: 8881
+  cloud:
+    config:
+      label: master
+      profile: dev
+      uri: http://localhost:8888/
+      discovery:
+        enabled: true
+        service-id: config-server
+    stream:
+      kafka:
+        binder:
+          #Kafka的服务端列表，默认localhost
+          brokers: 192.168.74.11:9092
+          zk-nodes: 192.168.74.11:2181
+    bus:
+      enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+
+
+
+
